@@ -47,8 +47,11 @@ print ("\033[0;32mCEP: "+links[6].replace("\n", "").replace("\t", "")+"\033[0m")
 result = []
 for i in soup.findAll('div', attrs={'class': 'itemMoradores'}):
 	result.append(i.text)
-print ("\033[0;32mVisinho: "+result[0].replace("\t", "").replace("\n", "")+"\033[0m")
-print ("\033[0;32mVisinho: "+result[1].replace("\t", "").replace("\n", "")+"\033[0m")
-print ("\033[0;32mVisinho: "+result[2].replace("\t", "").replace("\n", "")+"\033[0m")
-print ("\033[0;32mVisinho: "+result[3].replace("\t", "").replace("\n", "")+"\033[0m")
-print ("\033[0;32mVisinho: "+result[4].replace("\t", "").replace("\n", "")+"\033[0m")
+if len(result) < 2:
+	print ("\033[0;32mNão foi possível pegar os nomes dos vizinhos\033[0m")
+else:
+	print ("\033[0;32mVizinho: "+result[0].replace("\t", "").replace("\n", "")+"\033[0m")
+	print ("\033[0;32mVizinho: "+result[1].replace("\t", "").replace("\n", "")+"\033[0m")
+	print ("\033[0;32mVizinho: "+result[2].replace("\t", "").replace("\n", "")+"\033[0m")
+	print ("\033[0;32mVizinho: "+result[3].replace("\t", "").replace("\n", "")+"\033[0m")
+	print ("\033[0;32mVizinho: "+result[4].replace("\t", "").replace("\n", "")+"\033[0m")
