@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 #_*_ coding:utf-8 _*_
 
-import sys
-import os 
+from sys import platform
+from os import system
 import socket
 
 def System():
