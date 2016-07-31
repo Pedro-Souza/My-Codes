@@ -1,33 +1,32 @@
 #!/usr/bin/env python
 #_*_ coding:utf-8 _*_
 
-from sys import platform
+from sys import platform, argv
 from os import system
 import socket
 
 def System():
-    if sys.platform in ['linux', 'linux2']:
-        os.system("clear")
+    if platform in ['linux', 'linux2']:
+        system("clear")
     else:
-        os.system("cls")
+        system("cls")
 
-def Connection(ip, port):
-	print("1")
+def Connection(ip, port, time=6):
 	sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	sock.settimeout(time)
 	result = sock.connect_ex((ip,int(port)))
-	print("2")
 	if result == 0:
-		print("Port open: "+ port)
+		print("Port open: "+ str(port))
 	else:
-		print("Prot close: "+ port)
+		print("Prot close: "+ str(port))
 	sock.close()
 
 def Arguments():
-	host = sys.argv[2].replace("http://", "").replace("https://", "").replace("www.", "")
+	host = argv[2].replace("http://", "").replace("https://", "").replace("www.", "")
 	host = socket.gethostbyname(host)
-	if sys.argv[3] == "--all": #Bug aqui, porém o sono é maior...
+	if argv[3] == "--all": #Bug aqui, porém o sono é maior...
 		for port in range(20,65535):
 			Connection(host, port)
-	elif sys.argv[3] == "--port":
-		Connection(host, sys.argv[4])
+	elif argv[3] == "--port":
+		Connection(host, argv[4])
 Arguments()
