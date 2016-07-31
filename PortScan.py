@@ -24,9 +24,14 @@ def Connection(ip, port, time=6):
 def Arguments():
 	host = argv[2].replace("http://", "").replace("https://", "").replace("www.", "")
 	host = socket.gethostbyname(host)
-	if argv[3] == "--all": #Bug aqui, porém o sono é maior...
+	if argv[3] == "--all": 
 		for port in range(20,65535):
 			Connection(host, port)
 	elif argv[3] == "--port":
 		Connection(host, argv[4])
-Arguments()
+if len(argv) < 3:
+	System()
+	print("Use --host for to set the site, --port for to set door or --all.")
+	quit()
+else:
+	Arguments()
