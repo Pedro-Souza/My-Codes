@@ -28,10 +28,13 @@ def Arguments():
 		for port in range(20,65535):
 			Connection(host, port)
 	elif argv[3] == "--port":
-		Connection(host, argv[4])
+		port = argv[4].split("-")
+		for i in port:
+			Connection(host, int(i))
 if len(argv) < 3:
 	System()
-	print("Use --host for to set the site, --port for to set door or --all.")
+	print("Use --host for to set the site, --port[22-43-80] for to set door or --all.")
+	print("Exaple: python PortScan --host google.com --port 22-43-80")
 	quit()
 else:
 	Arguments()
