@@ -38,7 +38,7 @@ def Arguments():
 
 
 def GetInfo():
-    # in contruction.
+    # in construction.
     pass
 
 
