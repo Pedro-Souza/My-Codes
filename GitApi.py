@@ -22,4 +22,4 @@ def GetInfo(user):
         print('Description repository: ' + str(req[i]['description']))
         print('URL repository: ' + req[i]['html_url'] + '\n')
         sleep(4)
-GetInfo()
+GetInfo('GouveaHeitor')
