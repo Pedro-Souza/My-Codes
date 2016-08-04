@@ -16,8 +16,7 @@ def Sistema():
 
 
 def GetRepos(user):
-    req = get("https://api.github.com/users/" + user + "/repos").text
-    req = loads(req)
+    req = loads(get('https://api.github.com/users/' + user + '/repos').text)
     for i in range(len(req)):
         print('Name repository: ' + req[i]['name'])
         print('Description repository: ' + str(req[i]['description']))
@@ -37,9 +36,16 @@ def Arguments():
                         help='Parameter for to get info of user')
 
 
-def GetInfo():
-    # in construction.
-    pass
+def GetInfo(user):
+    req = loads(get('https://api.github.com/users/' + user).text)
+    print('Name: ' + req['name'])
+    print('Company' + req['company'])
+    print('Blog: ' + req['blog'])
+    print('Bio: ' + req['bio'])
+    print('Location: ' + req['location'])
+    print('Email: ' + req['email'])
+    print('Public repository: ' + str(req['public_repos']))
+    print('Followers: ' + str(req['followers']))
 
 
-GetRepos('GouveaHeitor')
+GetInfo('suissa')
