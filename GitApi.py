@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding:utf-8 -*-
 
 from time import sleep
 from requests import get
@@ -28,12 +29,25 @@ def GetRepos(user):
 
 def Arguments():
     parser = ArgumentParser()
-    parser.add_argument('--repos', dest='repos',
-                        action='store', help="List all repository.")
-    parser.add_argument('--user', dest='user', action='store',
+    parser.add_argument('--repos', dest='repos', action='store_true',
+                        help='List all repository.')
+    parser.add_argument('--user', dest='user', action='store_true',
                         required=True, help='Parameter for set user.')
-    parser.add_argument('--info', dest='info', action='store',
+    parser.add_argument('--info', dest='info', action='store_true',
                         help='Parameter for to get info of user')
+    parser.add_argument('--all', dest='all', action='store_true',
+                        help='Parameter for to define all options')
+    args = parser.parse_args()
+    print(args.user)
+    if args.user and args.info:
+        GetInfo(args.user)
+    elif args.user and args.repos:
+        GetRepos(args.user)
+    elif args.user and args.all:
+        GetInfo(args.user)
+        GetRepos(args.user)
+    else:
+        print('User --info, --repos or --all.')
 
 
 def GetInfo(user):
@@ -48,4 +62,4 @@ def GetInfo(user):
     print('Followers: ' + str(req['followers']))
 
 
-GetInfo('suissa')
+Arguments()
