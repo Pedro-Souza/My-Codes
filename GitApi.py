@@ -18,6 +18,7 @@ def Sistema():
 
 def GetRepos(user):
     req = loads(get('https://api.github.com/users/' + user + '/repos').text)
+    print('Repositorys of user.')
     for i in range(len(req)):
         print('Name repository: ' + req[i]['name'])
         print('Description repository: ' + str(req[i]['description']))
@@ -27,18 +28,30 @@ def GetRepos(user):
         sleep(4)
 
 
+def GetInfo(user):
+    req = loads(get('https://api.github.com/users/' + user).text)
+    print('Information of user:')
+    print('Name: ' + req['name'])
+    print('Company: ' + req['company'])
+    print('Blog: ' + req['blog'])
+    print('Bio: ' + req['bio'])
+    print('Location: ' + req['location'])
+    print('Email: ' + str(req['email']))
+    print('Public repository: ' + str(req['public_repos']))
+    print('Followers: ' + str(req['followers']) + '\n')
+
+
 def Arguments():
     parser = ArgumentParser()
     parser.add_argument('--repos', dest='repos', action='store_true',
                         help='List all repository.')
-    parser.add_argument('--user', dest='user', action='store_true',
+    parser.add_argument('--user', dest='user', action='store',
                         required=True, help='Parameter for set user.')
     parser.add_argument('--info', dest='info', action='store_true',
                         help='Parameter for to get info of user')
     parser.add_argument('--all', dest='all', action='store_true',
                         help='Parameter for to define all options')
     args = parser.parse_args()
-    print(args.user)
     if args.user and args.info:
         GetInfo(args.user)
     elif args.user and args.repos:
@@ -47,19 +60,7 @@ def Arguments():
         GetInfo(args.user)
         GetRepos(args.user)
     else:
-        print('User --info, --repos or --all.')
-
-
-def GetInfo(user):
-    req = loads(get('https://api.github.com/users/' + user).text)
-    print('Name: ' + req['name'])
-    print('Company' + req['company'])
-    print('Blog: ' + req['blog'])
-    print('Bio: ' + req['bio'])
-    print('Location: ' + req['location'])
-    print('Email: ' + req['email'])
-    print('Public repository: ' + str(req['public_repos']))
-    print('Followers: ' + str(req['followers']))
+        print('Use --info, --repos or --all.')
 
 
 Arguments()
