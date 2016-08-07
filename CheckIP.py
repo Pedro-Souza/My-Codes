@@ -4,8 +4,7 @@ import urllib
 import os
 import re
 os.system("clear")
-# Valeu Lion Security pela oportunida, hehehe.
-# Tamo junto Anderson, Raphael e OverKiller <3
+
 ConecLer = urllib.urlopen('https://check.torproject.org/?lang=pt').read()
 ip = re.findall('<strong>(.*?)</strong></p>', ConecLer)
 text = re.findall('<p>(.*?) <strong>', ConecLer)
