@@ -4,6 +4,7 @@
 from os import system
 from sys import platform
 from itertools import permutations
+from sys import argv
 
 
 def System():
@@ -12,7 +13,15 @@ def System():
     else:
         system('cls')
 
-# In construction...
+
+def Arguments():
+    if len(argv) < 2:
+        System()
+        print("Please use --word 'Word Here'")
+        print("Use / for to separate two words")
+        quit()
+    else:
+        Infinity(argv[2])
 
 
 def Infinity(word):
@@ -28,4 +37,4 @@ def Infinity(word):
         arq.write("".join(combinations) + "\n")
 
 
-Infinity("Pedro")
+Arguments()
