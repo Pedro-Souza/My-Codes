@@ -35,6 +35,8 @@ def Infinity(word):
     arq = open("WordList.txt", "w", closefd=True)
     for combinations in permutations(words):
         arq.write("".join(combinations) + "\n")
+    print("Congratulations, WordList created successfully.")
+    print("Name of file: WordList.txt")
 
 
 Arguments()
