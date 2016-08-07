@@ -12,4 +12,4 @@ for i in range(0, 100):
     else:
         print(str(i) + ' É impar.')
 fim = time.time()
-print('Tempo de execução: ' + str(fim-ini))
+print('Tempo de execução: ' + str(fim - ini))
