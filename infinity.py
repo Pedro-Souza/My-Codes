@@ -25,6 +25,7 @@ def Arguments():
 
 
 def Infinity(word):
+    System()
     if "/" in word:
         word = word.split("/")
         words = ""
