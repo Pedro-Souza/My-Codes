@@ -49,7 +49,8 @@ class GitHub():
 
 
 def Arguments():
-    parser=ArgumentParser()
+    user = GitHub()
+    parser = ArgumentParser()
     parser.add_argument('--repos', dest='repos', action='store_true',
                         help='List all repository.')
     parser.add_argument('--user', dest='user', action='store',
@@ -58,13 +59,15 @@ def Arguments():
                         help='Parameter for to get info of user')
     parser.add_argument('--all', dest='all', action='store_true',
                         help='Parameter for to define all options')
-    args=parser.parse_args()
+    args = parser.parse_args()
     if args.user and args.info:
-        GetInfo(args.user)
+        print(user.GetInfo(args.user))
     elif args.user and args.repos:
-        GetRepos(args.user)
+        print(user.GetRepos(args.user))
     elif args.user and args.all:
-        GetInfo(args.user)
-        GetRepos(args.user)
+        print(user.GetRepos(args.user))
+        print(user.GetInfo(args.user))
     else:
         print('Use --info, --repos or --all.')
+
+Arguments()
