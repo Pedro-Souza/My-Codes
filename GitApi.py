@@ -6,8 +6,7 @@ from requests import get
 from json import loads
 from sys import platform
 from os import system
-from argparse import ArgumentParser
-
+# from argparse import ArgumentParser
 
 def Sistema():
     if platform in ['linux', 'linux2']:
@@ -16,31 +15,33 @@ def Sistema():
         system("cls")
 
 
-def GetRepos(user):
-    req = loads(get('https://api.github.com/users/' + user + '/repos').text)
-    print('Repositorys of user.')
-    for i in range(len(req)):
-        print('Name repository: ' + str(req[i]['name']))
-        print('Description repository: ' + str(req[i]['description']))
-        print('URL repository: ' + str(req[i]['html_url']))
-        print('Stars: total: ' + str(req[i]['stargazers_count']))
-        print('Forks total: ' + str(req[i]['forks_count']) + '\n')
-        sleep(4)
+class GitHub():
 
+    def GetRepos(self, user):
+        req = loads(get('https://api.github.com/users/' +
+                        user + '/repos').text)
+        print('Repositorys of user.')
+        for i in range(len(req)):
+            print('Name repository: ' + str(req[i]['name']))
+            print('Description repository: ' + str(req[i]['description']))
+            print('URL repository: ' + str(req[i]['html_url']))
+            print('Stars: total: ' + str(req[i]['stargazers_count']))
+            print('Forks total: ' + str(req[i]['forks_count']) + '\n')
+            sleep(4)
 
-def GetInfo(user):
-    req = loads(get('https://api.github.com/users/' + user).text)
-    print('Information of user:')
-    print('Name: ' + str(req['name']))
-    print('Company: ' + str(req['company']))
-    print('Blog: ' + str(req['blog']))
-    print('Bio: ' + str(req['bio']))
-    print('Location: ' + str(req['location']))
-    print('Email: ' + str(req['email']))
-    print('Public repository: ' + str(req['public_repos']))
-    print('Followers: ' + str(req['followers']) + '\n')
+    def GetInfo(self, user):
+        req = loads(get('https://api.github.com/users/' + user).text)
+        print('Information of user:')
+        print('Name: ' + str(req['name']))
+        print('Company: ' + str(req['company']))
+        print('Blog: ' + str(req['blog']))
+        print('Bio: ' + str(req['bio']))
+        print('Location: ' + str(req['location']))
+        print('Email: ' + str(req['email']))
+        print('Public repository: ' + str(req['public_repos']))
+        print('Followers: ' + str(req['followers']) + '\n')
 
-
+'''
 def Arguments():
     parser = ArgumentParser()
     parser.add_argument('--repos', dest='repos', action='store_true',
@@ -61,6 +62,4 @@ def Arguments():
         GetRepos(args.user)
     else:
         print('Use --info, --repos or --all.')
-
-
-Arguments()
+'''
