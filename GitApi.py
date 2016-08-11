@@ -68,5 +68,6 @@ class GitHub():
             print(self.user.GetInfo(self.args.user))
         else:
             print('Use --info, --repos or --all.')
-a = GitHub()
-a.Arguments()
+
+Github = GitHub()
+Github.Arguments()
