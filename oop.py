@@ -11,5 +11,11 @@ class Calcular():
 
     def Dividir(self, n1, n2):
         return n1 / n2
+
+    def Multiplicar(self, n1, n2):
+        return n1 * n2
+
+    def Subtrair(self, n1, n2):
+        return n1 - n2
 calculator = Calcular()
 print(calculator.Dividir(1, 2))
