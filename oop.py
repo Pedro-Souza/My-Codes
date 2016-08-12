@@ -17,5 +17,8 @@ class Calcular():
 
     def Subtrair(self, n1, n2):
         return n1 - n2
+
+    def Potencia(self, n1, n2):
+        return n1 ** n2
 calculator = Calcular()
 print(calculator.Dividir(1, 2))
