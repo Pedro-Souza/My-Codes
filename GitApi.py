@@ -3,19 +3,10 @@
 
 from requests import get
 from json import loads
-from sys import platform
-from os import system
 from argparse import ArgumentParser
 
 
-def Sistema():
-    if platform in ['linux', 'linux2']:
-        system("clear")
-    else:
-        system("cls")
-
-
-class GitHub():
+class GitHub:
 
     def GetRepos(self, user):
         self.msg = ""
