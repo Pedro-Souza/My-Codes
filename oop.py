@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
+from math import sqrt
 
 
 class Calcular:
@@ -21,6 +22,8 @@ class Calcular:
     def Potencia(self, n1, n2):
         return n1 ** n2
 
+    def Raiz(self, n):
+        return sqrt(n)
 
 calculator = Calcular()
-print(calculator.Dividir(1, 2))
+print(calculator.Raiz(9))
