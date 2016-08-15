@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-from math import sqrt, pi
+from math import sqrt, pi, tan
 
 
 class Calcular:
@@ -27,6 +27,9 @@ class Calcular:
 
     def Pi(self):
         return pi
+
+    def Tan(self, n1):
+        return tan(n1)
 
 calculator = Calcular()
 print(calculator.Raiz(9))
