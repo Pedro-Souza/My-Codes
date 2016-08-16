@@ -9,32 +9,32 @@ class Calcular:
         self.n1 = n1
         self.n2 = n2
 
-    def Soma(self):
+    def soma(self):
         return self.n1 + self.n2
 
-    def Dividir(self):
+    def dividir(self):
         return self.n1 / self.n2
 
-    def Multiplicar(self):
+    def multiplicar(self):
         return self.n1 * self.n2
 
-    def Subtrair(self):
+    def subtrair(self):
         return self.n1 - self.n2
 
-    def Potencia(self):
+    def potencia(self):
         return self.n1 ** self.n2
 
-    def Raiz(self):
+    def raiz(self):
         return sqrt(self.n1)
 
-    def Pi(self):
+    def pi(self):
         return pi
 
 calc = Calcular(10, 2)
-print(calc.Soma())
-print(calc.Dividir())
-print(calc.Multiplicar())
-print(calc.Subtrair())
-print(calc.Potencia())
-print(calc.Raiz())
-print(calc.Pi())
+print(calc.soma())
+print(calc.dividir())
+print(calc.multiplicar())
+print(calc.subtrair())
+print(calc.potencia())
+print(calc.raiz())
+print(calc.pi())
