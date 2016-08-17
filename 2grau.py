@@ -8,8 +8,9 @@ class Calculater:
         self.descri = "Simple library for calculation operation of 2 degree."
 
     def calculate_x(self, delta, a, b):
-        self.x_linha = (- b + sqrt(delta)) / 2 * a
-        return self.x_linha
+        self.x_linha_first = (- b + sqrt(delta)) / 2 * a
+        self.x_linha_second = (- b - sqrt(delta)) / 2 * a
+        return self.x_linha_first, self.x_linha_second
 
     def delta_full(self, a, b, c):
         return self.calculate_x((((-b**2) * -1) - 4 * a * c), a, b)
