@@ -16,5 +16,5 @@ class Calculater:
         return self.calculate_x((((-b**2) * -1) - 4 * a * c), a, b)
 
 
-a = Calculater()
-print(a.delta_full(-1, 2, 3))
+degree = Calculater()
+degree.delta_full(-1, 2, 3)
