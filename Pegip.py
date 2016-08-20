@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # _*_ coding: utf-8 _*_
 
-import os
-import sys
-import socket
+from os import system
+from sys import platform, argv
+from socket import gethostbyname
 
 
 def main():
@@ -12,19 +12,19 @@ def main():
 
 
 def Sistema():
-    if sys.platform in ['linux2', 'linux']:
-        os.system("clear")
+    if platform in ['linux2', 'linux']:
+        system("clear")
     else:
-        os.system("cls")
+        system("cls")
 
 
 def Resover():
-    if len(sys.argv) < 3:
+    if len(argv) < 3:
         print("Use python3 Pegip.py -h <host>")
     else:
-        print(len(sys.argv))
-        host = sys.argv[2].replace(
+        print(len(argv))
+        host = argv[2].replace(
             "https://", "").replace("http://", "").replace("www", "")
-        print("IP: " + str(socket.gethostbyname(host)))
+        print("IP: " + str(gethostbyname(host)))
 
 main()
