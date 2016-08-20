@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-#_*_ coding:utf-8 _*_
+# -*- coding:utf-8 -*-
 
 from sys import platform, argv
 from os import system
-import socket
+from socket import socket
 
 
 def System():
