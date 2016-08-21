@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-import os
-import sys
+from os import system
+from sys import platform
 
 
 def CheckSystem():
-    if sys.platform == 'linux2':
-        os.system("clear")
+    if platform == 'linux2':
+        system("clear")
     else:
-        os.system("cls")
+        system("cls")
 CheckSystem()
 
 
@@ -18,7 +18,7 @@ def Encrypt(Word):
         lista.append(ord(encry) + 3)
     for krl in lista:
         lista1.append(chr(krl))
-    print "\033[1;34mWord Encriptada: %s" % ''.join(lista1) + "\033[0m"
+    print("\033[1;34mWord Encriptada: %s" % ''.join(lista1) + "\033[0m")
 
 
 def Decrypt(Word):
@@ -27,7 +27,7 @@ def Decrypt(Word):
         lista.append(ord(decry) - 3)
     for krl in lista:
         lista1.append(chr(krl))
-    print "\033[1;34mWord Decryptada: %s" % ''.join(lista1) + "\033[0m"
+    print("\033[1;34mWord Decryptada: %s" % ''.join(lista1) + "\033[0m")
 
 
 def main():
@@ -38,5 +38,5 @@ def main():
     elif int(Verify) == 2:
         Encrypt(Word)
     else:
-        print "\033[1;32mUse 1 or 2!\033[0m"
+        print("\033[1;32mUse 1 or 2!\033[0m")
 main()
