@@ -2,7 +2,8 @@
 # -*- coding:utf-8 -*-
 
 
-a, b = 0, 1
+a = 0
+b = 1
 num = int(input("Até qual número? "))
 while b < num:
     a = b
