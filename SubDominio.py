@@ -1,38 +1,37 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import os
-import argparse
-import requests
-import sys
+from os import system
+from requests import get
+from sys import platform
 
 
 def Sistema():
-    if sys.platform != 'linux2':
-        os.system("cls")
+    if platform != 'linux2':
+        system("cls")
     else:
-        os.system("clear")
+        system("clear")
 
 
 def Banner():
-    print """\033[0;35m		 ____        _     ____                  _             
-		/ ___| _   _| |__ |  _ \  ___  _ __ ___ (_)_ __   ___  
-		\___ \| | | | '_ \| | | |/ _ \| '_ ` _ \| | '_ \ / _ \ 
- 	 	 ___) | |_| | |_) | |_| | (_) | | | | | | | | | | (_) |
-		|____/ \____|____/|____/ \___/|_| |_| |_|_|_| |_|\___/ \033[0m
-	 """
+    print("""\033[0;35m         ____        _     ____                  _             
+        / ___| _   _| |__ |  _ \  ___  _ __ ___ (_)_ __   ___  
+        \___ \| | | | '_ \| | | |/ _ \| '_ ` _ \| | '_ \ / _ \ 
+         ___) | |_| | |_) | |_| | (_) | | | | | | | | | | (_) |
+        |____/ \____|____/|____/ \___/|_| |_| |_|_|_| |_|\___/ \033[0m
+     """)
 
 
 def TesteSub(site):
     try:
-        r = requests.get(site)
+        r = get(site)
         if r.status_code == 200:
-            print "\033[0;31mSub existente: " + site + "\033[0m"
+            print("\033[0;31mSub existente: " + site + "\033[0m")
             pass
         else:
-            print "\033[1;32mSub inesistente: " + site + "\033[0m"
+            print("\033[1;32mSub inesistente: " + site + "\033[0m")
     except:
-        print "\033[1;32mSub inesistente: " + site + "\033[0m"
+        print("\033[1;32mSub inesistente: " + site + "\033[0m")
 
 
 def Gambiarra(subs, site):
@@ -44,7 +43,7 @@ def Gambiarra(subs, site):
             site = site[:7] + subs + "." + site[11:]
             TesteSub(site)
         else:
-            print "User https:// ou http://"
+            print("User https:// ou http://")
     else:
         if site[:8] == "https://":
             site = site[:8] + subs + "." + site[8:]
@@ -53,13 +52,13 @@ def Gambiarra(subs, site):
             site = site[:7] + subs + "." + site[7:]
             TesteSub(site)
         else:
-            print "Use https:// ou http://"
+            print("Use https:// ou http://")
 
 
 def Percorrer():
-    lista = raw_input("\033[0;34mEntre com a lista: \033[0m")
-    site = raw_input("\033[0;34mEntre com o site: \033[0m")
-    print "-" * 125
+    lista = input("\033[0;34mEntre com a lista: \033[0m")
+    site = input("\033[0;34mEntre com o site: \033[0m")
+    print("-" * 125)
     lista = open(lista, "r").readlines()
     for i in lista:
         i = i.replace("\n", "").replace("\r", "")
