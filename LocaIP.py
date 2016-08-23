@@ -4,7 +4,7 @@ import urllib
 import os
 import re
 os.system("clear")
-ip = raw_input("\033[35mEntre com o IP: \033[0m")
+ip = input("\033[35mEntre com o IP: \033[0m")
 loca = "http://www.localizarip.com.br/localizar-ip.php?ip=" + ip
 abrir = urllib.urlopen(loca).read()
 pais, estado, cidade, provedor = re.findall('Pa&iacute;s:<b>(.*?)</b><br>', abrir), re.findall(
