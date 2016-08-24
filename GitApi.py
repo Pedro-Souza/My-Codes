@@ -60,5 +60,6 @@ class GitHub:
         else:
             print('Use --info, --repos or --all.')
 
-Github = GitHub()
-Github.arguments()
+if __name__ == "__main__":
+    arg = GitHub()
+    arg.arguments()
