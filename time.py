@@ -9,6 +9,7 @@ class Time:
         for i in range(dure):
             print(i)
 
+
 init = time()
 ins = Time()
 ins.Test()
