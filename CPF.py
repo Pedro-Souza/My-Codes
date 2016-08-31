@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 
 # Caso de erro na importação, o programa exibe uma mensagem. Assim auxilia o
 # usuário
