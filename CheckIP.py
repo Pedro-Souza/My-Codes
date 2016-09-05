@@ -1,10 +1,9 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
-from os import system
+
 from re import findall
 from requests import get
 
-system("clear")
 
 ConecLer = get('https://check.torproject.org/?lang=pt').text
 ip = findall('<strong>(.*?)</strong></p>', ConecLer)
