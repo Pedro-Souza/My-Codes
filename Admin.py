@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 
 import urllib
-import os
+from os import system
 import sys
 import argparse
 
@@ -19,9 +19,9 @@ def Banner():
 
 def Sistema():
     if sys.platform != "linux2":
-        os.system("cls")
+        system("cls")
     else:
-        os.system("clear")
+        system("clear")
 
 
 def Argumentos():
