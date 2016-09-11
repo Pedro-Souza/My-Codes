@@ -16,4 +16,6 @@ def Happy(number):
         if fixo == number1:
             print(str(fixo) + " Não é feliz. :/")
             quit()
+
+
 Happy(7)  # Altere o número aqui para saber se é feliz ou não...
