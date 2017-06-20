@@ -1,11 +1,6 @@
 from tkinter import *
 
 
-def teste():
-    print(entrychiled.get())
-
-
-
 class gui(object):
     def __init__(self):
         self.master = Tk()
