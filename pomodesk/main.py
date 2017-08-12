@@ -7,11 +7,13 @@ class gui(object):
 
 
     def crono(self):
-        print("UÉ, TO AQUI.")
+        pass
 
     def start(self):
-        chield = Label(self.master, text='Tempo:').grid(row=0, column=0)
-        input = Entry(self.master, textvariable=StringVar()).grid(row=0,
+        self.master.title('PomoDesk')
+        self.time = StringVar()
+        self.chield = Label(self.master, text='Tempo:').grid(row=0, column=0)
+        self.input = Entry(self.master, textvariable=self.time).grid(row=0,
                                                         column=1)
         Button(self.master, text='Cronometrar!', command=self.crono).grid(row=0,
                                                         column=2)
