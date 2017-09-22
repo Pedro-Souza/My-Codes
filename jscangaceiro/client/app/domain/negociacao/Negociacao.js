@@ -1,9 +1,12 @@
 class Negociacao{
     constructor(_data, _quantidade, _valor){
         Object.assign(this, {_quantidade, _valor});
-        this._data = new Date(_data.getTime());
+        //this._data = new Date(_data.getTime());
         Object.freeze(this);
     } 
+    teste() {
+        console.log('Seu teste foi chamado');
+    }
     get volume() {
         return this._quantidade * this._valor;
     }
