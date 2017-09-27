@@ -1,6 +1,4 @@
 const controller = new NegocicaoController(); 
-const negociacao = new Negociacao();
+//const negociacao = new Negociacao();
 
-document.query.Selector('.form', event => {
-    controller.adiciona();
-});
+document.querySelector('.form').addEventListener('submit', controller.adiciona.bind(controller));
