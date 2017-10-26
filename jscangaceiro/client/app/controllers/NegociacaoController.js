@@ -12,9 +12,13 @@ class NegocicaoController{
     adiciona(event) {
         console.log('Me chamou');
         event.preventDefault();
-        console.log(this._inputData.value);
-        console.log(parseInt(this._inputQuantidade.value));
-        console.log(parseFloat(this._inputValor.value));
+        let data = new Date(this._inputData.value.split("-"));
+        console.log(data);
+        let negocicao = new Negociacao(data, 
+                                      parseInt(this._inputQuantidade.value), 
+                                      parseFloat(this._inputValor.value)
+                                     );
+        console.log(negocicao);
 
         alert('Chamei acção no controller');
     }
