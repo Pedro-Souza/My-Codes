@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
+    </head>
+    <body>
+      <input type="text" id="cep"> 
+      <button onclick="chamar()" >Pesquisar</button>
+      <script>
+          const cep = async cep => {
+              console.log(`cep => ${cep}`);
+              const headers = {"Content-Type": "application/json"}
+              const result = await fetch(`http://api.postmon.com.br/v1/cep/${cep}`, headers);
+              console.log(result);
+          }
+          function chamar() {
+            cep(document.getElementById("cep").value);
+          }
+      </script> 
+    </body>
+</html>
