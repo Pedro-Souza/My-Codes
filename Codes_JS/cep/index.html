@@ -4,17 +4,7 @@
     </head>
     <body>
       <input class="button" type="text" id="cep"> 
-      <button class="button" onclick="chamar()" >Pesquisar</button>
-      <script>
-          const cep = async cep => {
-              console.log(`cep => ${cep}`);
-              const headers = {"Content-Type": "application/json"}
-              const result = await fetch(`http://api.postmon.com.br/v1/cep/${cep}`, headers);
-              console.log(result);
-          }
-          function chamar() {
-            cep(document.getElementById("cep").value);
-          }
-      </script> 
+      <button class="button" onclick="getDados()" >Pesquisar</button>
+      <script type="text/javascript" src="./js/app.js"></script>
     </body>
 </html>
