@@ -4,7 +4,12 @@ const cep = async cep => {
     }
     let result = await fetch(`https://api.postmon.com.br/v1/cep/${cep}`, headers);
     let data = await result.text(); 
-    console.log(data);
+    result = JSON.parse(data);
+    document.getElementById("cidade").innerHTML = `Cidade => ${result.cidade}`;
+    document.getElementById("estado").innerHTML = `Estado => ${result.estado}`;
+    document.getElementById("bairro").innerHTML = `Bairro => ${result.bairro}`;
+    document.getElementById("rua").innerHTML = `Rua => ${result.logradouro}`
+    console.log(JSON.parse(data));
 }
 
 function getDados() {

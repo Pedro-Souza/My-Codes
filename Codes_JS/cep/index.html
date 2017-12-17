@@ -1,10 +1,17 @@
 <html>
     <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">-->
+        <link rel="stylesheet" href="./style.css">
     </head>
     <body>
       <input class="button" type="text" id="cep"> 
       <button class="button" onclick="getDados()" >Pesquisar</button>
+      <div class="viewDados">
+        <p id="cidade"></p>
+        <p id="estado"></p>
+        <p id="bairro"></p>
+        <p id="rua"></p>
+      </div>  
       <script type="text/javascript" src="./js/app.js"></script>
     </body>
 </html>
