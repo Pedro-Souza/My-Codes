@@ -12,6 +12,6 @@ const cep = async cep => {
     console.log(JSON.parse(data));
 }
 
-function getDados() {
+const getDados = () => {
     cep(document.getElementById("cep").value);
 }
